@@ -1,0 +1,79 @@
+
+need to install package:
+# pip install python-dateutil
+
+about the solution:
+The idea is based on merge-sorting N lists, using heapq for efficiency.
+
+TODO in code:
+DataContainer._parse_meetings - check & remove duplicates (same meeting at several people's calendars)
+DataContainer._mark_first_and_last_day - probably not efficient and we can improve by keeping first&last date when parsing the data
+
+
+
+########
+# TASK #
+########
+
+Calendar - coordinate n people for a meeting
+Write an efficient algorithm to find a slot that is available among n calendars.
+Please take the time to write clean code with a good breakdown.
+Input: each calendar is represented by a list of meetings, you will be given a list of them.
+Output: return a list of available slots.
+Timestamps are formatted per ISO 8601 notation.
+Sample data:
+[
+    {
+    "name": "Betty",
+    "meetings": [
+        {
+        "startTime": "2021-03-10T08:55:39+00:00",
+        "endTime": "2021-03-10T09:15:39+00:00",
+        "subject": "Meeting 1"
+        },
+        {
+        "startTime": "2021-03-10T09:55:39+00:00",
+        "endTime": "2021-03-10T10:15:39+00:00",
+        "subject": "Meeting 2"
+        },
+        {
+        "startTime": "2021-03-10T11:55:39+00:00",
+        "endTime": "2021-03-10T12:15:39+00:00",
+        "subject": "Meeting 3"
+        }]},
+    {
+    "name": "John",
+    "meetings": [
+        {
+        "startTime": "2021-03-10T08:15:39+00:00",
+        "endTime": "2021-03-10T09:55:39+00:00",
+        "subject": "Meeting a"
+        },
+        {
+        "startTime": "2021-03-10T10:15:39+00:00",
+        "endTime": "2021-03-10T10:55:39+00:00",
+        "subject": "Meeting b"
+        },
+        {
+        "startTime": "2021-03-10T11:15:39+00:00",
+        "endTime": "2021-03-10T12:55:39+00:00",
+        "subject": "Meeting c"
+        }]}
+]
+
+Expected result:
+
+[
+    {
+    “startTime”: “2021-03-10T00:00:00+00:00”,
+    “endTime”: “2021-03-10T08:15:39+00:00”
+    },
+    {
+    “startTime”: “2021-03-10T10:55:39+00:00”,
+    “endTime”: “2021-03-10T11:15:39+00:00”
+    },
+    {
+    “startTime”: “2021-03-10T12:55:39+00:00”,
+    “endTime”: “2021-03-10T23:59:59+00:00”
+    }
+]
